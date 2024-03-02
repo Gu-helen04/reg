@@ -4,6 +4,8 @@ export default class Validator {
   }
 
   validateUsername() {
+    
+    const allletters = /^([a-zA-Z]+)$/i.test(this.user)
     const lettersAccept = /^[a-zA-Z]/.test(this.user);
     const dashAccept = /[\w-]/.test(this.user);
     const underscopeAccept = /[\w_]/.test(this.user);
@@ -12,9 +14,11 @@ export default class Validator {
     const endRow = /[a-zA-Z]+$/.test(this.user);
 
     // eslint-disable-next-line max-len
-    if (lettersAccept && dashAccept && underscopeAccept && numbersAccept && exeptThreeNumbersInRow && endRow) {
-      return true;
-    }
-    return false;
+    if (allletters){
+    return true;
+  } else if (lettersAccept && dashAccept && underscopeAccept && numbersAccept && exeptThreeNumbersInRow && endRow) {
+    return true;
+  }
+  return false;
   }
 }

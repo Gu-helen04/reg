@@ -35,3 +35,15 @@ test('test_6', () => {
 
   expect(result.validateUsername()).toEqual(false);
 });
+
+test('test_7', () => {
+  const result = new Validator('Helen');
+
+  expect(result.validateUsername()).toEqual(true);
+});
+
+test('test_8', () => {
+  const result = new Validator('Hel..en');
+
+  expect(result.validateUsername()).toEqual(false);
+});
